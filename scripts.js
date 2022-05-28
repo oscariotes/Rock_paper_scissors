@@ -1,86 +1,125 @@
 const myItems = ['rock', 'paper', 'scissors'];
 //Choose random from the array.
 function computerPlay(){ 
-   let selected = myItems[Math.floor(Math.random()*myItems.length)];
-   return selected;
+   selected = myItems[Math.floor(Math.random()*myItems.length)];
+     computerChoice.innerHTML = 'Computer choose ' + selected;
 };
 
-let computerInput;
+
+
+let computerScore = 1;
+let playerScore = 1;
+
+
+
+//computerInput = computerPlay();
 let playerInput;
-let computerScore = 0;
-let playerScore = 0;
+let playerChoice = document.getElementById('playerChoice');
+let computerChoice = document.getElementById('computerChoice');
+let result = document.getElementById('result');
+let pDisplayScore = document.getElementById('playerScore');
+let cDisplayScore =  document.getElementById('computerScore')
+let theWinner = document.getElementById('theWinner')
+
+const btnRock = document.getElementById('rock')
+const btnPaper = document.getElementById('paper');
+const btnScissors = document.getElementById('scissors');
+
+
+
+btnRock.addEventListener('click', rock);
+function rock (){
+   playerInput = 'rock';
+   playerChoice.innerHTML = 'You choose rock.'
+   //computerChoice.innerHTML ='Computer choose ' + computerInput;
+   playRound();
+   winner();
+}
+btnPaper.addEventListener('click', paper);
+   function paper (){
+      playerInput = 'paper';
+      playerChoice.innerHTML ='You choose paper.';
+      //computerChoice.innerHTML ='Computer choose ' + computerInput;
+      playRound();
+      winner();
+   }
+
+
+btnScissors.addEventListener('click', scissors);
+   function scissors(){
+      playerInput = 'scissors';
+      playerChoice.innerHTML = 'You choose scissors ';
+      //computerChoice.innerHTML ='Computer choose ' + computerInput;
+      playRound();
+      winner();
+   }
+   
+
 
 //The main logic of the game.
-function playRound(){
-let computerInput = computerPlay();
-let playerInput = prompt('Type rock, paper or scissors').toLowerCase();
-console.log(computerInput, playerInput);
-
-   if (computerInput === playerInput){
-     computerScore++;
-     playerScore++;
-      return('This is a tie!');
+function playRound(){ 
+   computerPlay();
+//rock
+   if(playerInput === selected) {
+      result.innerHTML = 'This is a tie';
+   }if (playerInput === 'rock' && selected === 'paper'){
+      result.innerHTML = 'Lose!';
+      cDisplayScore.innerHTML = 'Computer Score = ' + computerScore++;
+   }if (playerInput === 'rock' && selected === 'scissors'){
+      result.innerHTML = 'Win!'
+      pDisplayScore.innerHTML = 'Player Score = ' + playerScore++;
    }
 
-     if(computerInput ==='rock'){
-        if(playerInput ==='paper'){
-           playerScore++;
-           return('Win! Paper wraps rock.')
-        } else {
-           playerInput ==='scissors';
-           computerScore++;
-           return('Lose! Broken scissors.')
-        }
-     }
+   //paper
 
-     if (computerInput === 'paper'){
-        if (playerInput === 'rock'){
-           computerScore++;
-         return('Lose! Paper wraps rock.')
-        } else {
-           playerInput ==='scissors';
-           playerScore++;
-           return('Win! Scissor rips paper.')
-        }
-     }
+   if (playerInput === 'paper' && selected === 'rock'){
+      result.innerHTML ='Win!'
+      pDisplayScore.innerHTML = 'Player Score = ' + playerScore++;
+   }if (playerInput === 'paper' && selected === 'scissors'){
+      result.innerHTML ='Lose!'
+      cDisplayScore.innerHTML = 'Computer Score = ' + computerScore++;
+   }
 
-     if (computerInput ==='scissors'){
-        if (playerInput === 'rock'){
-           playerScore++;
-           return('Win! Broken scissors.')
-        } else {
-           playerInput === 'paper';
-           computerScore++;
-           return('Lose! Scissor cuts paper.')
-        }
-     }
-};
+//scissors
 
-console.log(playRound()) 
+   if (playerInput === 'scissors' && selected === 'paper'){
+      result.innerHTML = 'Win!'
+      pDisplayScore.innerHTML = 'Player Score = ' + playerScore++;
+   }if (playerInput === 'scissors' && selected === 'rock'){
+      result.innerHTML = 'Lose!'
+      cDisplayScore.innerHTML = 'Computer Score = ' + computerScore++;
+   }else {
+      return 'this is an error'
+   }
+
+}
+
 
 function game() {
-  //Loop function to play 5 times.
-   for (let i = 0; i < 4; i++) {
-   console.log(playRound(playerInput, computerPlay()));
-   }
+  for (let i = 0; i < 5; i++) {
+    playRound();
+  }
 }
-console.log(game())
+
+
 
 // This will determine the winner.
 //Tie are scored both for computer and player. Remove it from plaRound ////function to remove the tie.
-function theWinner(){
-   if (computerScore == playerScore) {
-      return ('This is a tie! Computer score on the left and yours on the right.')
+function winner(){
+   if (computerScore === playerScore) {
+      theWinner.innerHTML = 'This a tie';
    } if (computerScore > playerScore){
-      return ('You lose! Computer score on the left and yours on the right. ')
+      theWinner.innerHTML = 'You lose! ';
+   } if (computerScore < playerScore){
+      theWinner.innerHTML = 'You win!';
    } else {
-      return ('You win! Computer score on the left and yours on the right.')
+      theWinner.innerHTML = 'This is a no contest'
    }
 }
 
 
-console.log(theWinner());
-console.log(computerScore, playerScore);
+//console.log(theWinner());
+//console.log(computerScore, playerScore);
 
 
 
