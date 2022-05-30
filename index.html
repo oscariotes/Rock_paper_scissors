@@ -4,24 +4,62 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="rps.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <title>RPS</title>
     
 </head>
 <body>
-    <div><h1>Rock Paper Scissors</h1></div>
-    <div class="bottonContain">
-        <div class="btn"><button id="rock">Rock</button></div>
-        <div class="btn"><button id="paper">Paper</button></div>
-        <div class="btn"><button id="scissors">Scissors</button></div>
+    <header> 
+        <div class="hero-logo"><a href="#">Rock Paper Scissors</a></div>
+      <div>
+          <ul class="right-links">
+              <li><a href="#">Rock</a></li>
+              <li><a href="#">Paper</a></li>
+              <li><a href="#">Scissors</a></li>
+          </ul>
+      </div>
+    </header>
+
+    <div class="section1">
+        <div class="box">
+        <h1>Get ready to play Rock Paper Scissors</h1>
+        <p class="hero-secondary">Rock Paper Scissors is often used as a fair choosing method between two people, similar to coin flipping, drawing straws, or throwing dice in order to settle a dispute or make an unbiased group decision</p>
+       </div>
+       <figure class="box-2">
+        <div><img src="./images/Rock-paper-scissors.svg" alt="Rock-paper-scissors"></div>
+        <div><figcaption>By Enzoklop - Own work, CC BY-SA 3.0 <a href=" https://commons.wikimedia.org/w/index.php?curid=27958688">wikimedia</a></figcaption></div> 
+       </figure>
     </div>
-    <div id="playerChoice"></div>
-    <div id="computerChoice"></div>
-    <div id="result"></div>
-    <div id="playerScore"></div>
-    <div id="computerScore"></div>
-    <div id="theWinner"></div>
+
+      
+      <h2>Choose Your Move</h2>
+      <div class="section2">
+          <div class="container">        
+          <div class="btn"><button id="rock"><i class="fa-solid fa-hand"></i><br>Rock</button></div>
+          </div>
+          <div class="container">         
+          <div class="btn"><button id="paper"><i class="fa-solid fa-hand-back-fist"></i><br>Paper</button></div>
+          </div>
+          <div class="container">        
+          <div class="btn"><button id="scissors"><i class="fa-solid fa-hand-scissors"></i><br>Scissors</button></div>
+          </div>
+      </div>   
+
+
+      <div class="section3">
+        <div id="playerChoice"></div>
+        <div id="computerChoice"></div>
+        <div id="result"></div>
+        <div id="playerScore"></div>
+        <div id="computerScore"></div>
+        <div id="theWinner"></div>
+     </div>
+
+    </div>
+
     
-    
+    <footer>Copyright &#9400; Rock Paper Scissors</footer>
 </body>
 <script src="scripts.js"></script>
 </html>
